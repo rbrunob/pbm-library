@@ -14,3 +14,5 @@ export const validationSchema = z.strictObject({
             return !!Number(replacedDoc);
         }, 'CPF deve conter apenas números.'),
 });
+
+export type validationSchemaType = z.infer<typeof validationSchema>

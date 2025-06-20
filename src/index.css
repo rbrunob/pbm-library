@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 :root {
-    --width-container: 556px;
+    --max-container: 556px;
+    --min-container: 400px;
 }
 
 body {
