@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+:root {
+    --width-container: 556px;
+}
+
+body {
+    background-color: #18181b;
+    width: 100svw;
+    height: 100svh;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

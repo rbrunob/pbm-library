@@ -20,12 +20,17 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.1.1",
     "@tailwindcss/postcss": "^4.1.10",
     "@tailwindcss/vite": "^4.1.10",
+    "classnames": "^2.5.1",
+    "lucide-react": "^0.518.0",
     "postcss": "^8.5.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "tailwindcss": "^4.1.10"
+    "react-hook-form": "^7.58.1",
+    "tailwindcss": "^4.1.10",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "4.0.0",
