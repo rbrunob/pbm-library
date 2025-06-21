@@ -9,8 +9,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 import { ArrowRight } from "lucide-react";
+import { Dispatch, SetStateAction } from "react";
 
-function Form() {
+interface IForm {
+  onSubmit?: VoidFunction;
+  result: Dispatch<SetStateAction<boolean | null>>;
+  loading: Dispatch<SetStateAction<boolean>>;
+}
+
+function Form({ onSubmit, result: resultSubmit, loading }: IForm) {
   const {
     handleSubmit,
     register,
@@ -22,14 +29,25 @@ function Form() {
     },
   });
 
-  const onSubmit = (values: validationSchemaType) => {
-    // aqui vou fazer a requisição para a api e validadar o cpf se está cadastrado e se já aceitou os termos
-    console.log(values);
+  const onSubmitDefault = (values: validationSchemaType) => {
+    loading(true);
+
+    new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ cpf: values.cpf, isValid: false });
+      }, 2000);
+    })
+      .then((result) => {
+        resultSubmit((result as { isValid: boolean }).isValid);
+      })
+      .finally(() => {
+        loading(false);
+      });
   };
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit || onSubmitDefault)}
       className="w-full h-auto flex items-center-safe justify-center-safe"
     >
       <label
@@ -44,6 +62,7 @@ function Form() {
           )}
           placeholder="Digite seu CPF aqui..."
           required
+          maxLength={14}
           {...register("cpf")}
           onChange={(e) => {
             const { value } = e.target;

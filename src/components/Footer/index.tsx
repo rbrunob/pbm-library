@@ -5,9 +5,9 @@ function Footer() {
     <footer className="w-full h-auto relative">
       <section className="flex items-center-safe justify-center-safe w-full h-auto gap-4">
         <section className="w-4/5 h-auto">
-          <h4 className="text-start font-semibold text-sm">
+          <h3 className="text-start font-semibold text-sm">
             Economize com o benefício do laboratório.
-          </h4>
+          </h3>
           <p className="text-start font-normal text-sm">
             Este produto tem preço exclusivo para clientes cadastrados no
             programa.
