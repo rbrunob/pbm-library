@@ -1,5 +1,5 @@
-import Title from "../UI/Title";
-import Text from "../UI/Text";
+import Title from "@/components/UI/Title";
+import Text from "@/components/UI/Text";
 
 function AcceptCPF() {
   return (

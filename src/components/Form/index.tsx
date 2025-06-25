@@ -1,8 +1,8 @@
 import {
   validationSchema,
   validationSchemaType,
-} from "../../schema/validation-schema";
-import { toFormat } from "../../utils/format";
+} from "@/schema/validation-schema";
+import { toFormat } from "@/utils/format";
 
 import classNames from "classnames";
 import { zodResolver } from "@hookform/resolvers/zod";

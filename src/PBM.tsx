@@ -1,10 +1,10 @@
-import Header from "./components/Header";
-import Container from "./components/UI/Container";
-import Footer from "./components/Footer";
-import Form from "./components/Form";
-import AcceptCPF from "./components/AcceptCPF";
-import RejectCPF from "./components/RejectCPF";
-import Loading from "./components/UI/Loading";
+import Header from "@/components/Header";
+import Container from "@/components/UI/Container";
+import Footer from "@/components/Footer";
+import Form from "@/components/Form";
+import AcceptCPF from "@/components/AcceptCPF";
+import RejectCPF from "@/components/RejectCPF";
+import Loading from "@/components/UI/Loading";
 
 import { useState } from "react";
 

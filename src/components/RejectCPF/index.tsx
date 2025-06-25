@@ -1,7 +1,8 @@
 import React from "react";
-import Title from "../UI/Title";
-import Text from "../UI/Text";
-import Button from "../UI/Button";
+import Title from "@/components/UI/Title";
+import Text from "@/components/UI/Text";
+import Button from "@/components/UI/Button";
+import Iframe from "@/components/Iframe";
 
 function RejectCPF() {
   return (
@@ -14,6 +15,8 @@ function RejectCPF() {
         laboratório.
       </Text>
       <Button>Aceitar os termos</Button>
+
+      <Iframe url="" title="" />
     </section>
   );
 }
