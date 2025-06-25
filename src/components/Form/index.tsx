@@ -21,6 +21,7 @@ function Form({ onSubmit, result: resultSubmit, loading }: IForm) {
   const {
     handleSubmit,
     register,
+    setValue,
     formState: { errors },
   } = useForm<validationSchemaType>({
     resolver: zodResolver(validationSchema),
@@ -63,11 +64,12 @@ function Form({ onSubmit, result: resultSubmit, loading }: IForm) {
           placeholder="Digite seu CPF aqui..."
           required
           maxLength={14}
-          {...register("cpf")}
-          onChange={(e) => {
-            const { value } = e.target;
-            e.target.value = toFormat(value) || value;
-          }}
+          {...register("cpf", {
+            onChange: (e) => {
+              const formatted = toFormat(e.target.value);
+              setValue("cpf", formatted as string, { shouldValidate: true });
+            },
+          })}
         />
         {errors.cpf && (
           <span className="text-red-400 text-xs font-semibold  absolute -bottom-3 left-2 text-nowrap">
