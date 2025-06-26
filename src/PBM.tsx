@@ -2,29 +2,40 @@ import Header from "@/components/Header";
 import Container from "@/components/UI/Container";
 import Footer from "@/components/Footer";
 import Form from "@/components/Form";
-import AcceptCPF from "@/components/AcceptCPF";
-import RejectCPF from "@/components/RejectCPF";
 import Loading from "@/components/UI/Loading";
+import BenefitsTable from "@/components/BenefitsTable";
+import SecurityNumberInvalid from "@/components/SecurityNumberInvalid";
+
+import { initialValuesSecutiryNumber, ISecurityNumber } from "./types/globals";
 
 import { useState } from "react";
+import SecurityNumberRegitered from "./components/SecurityNumberRegitered";
 
 function PBM() {
-  const [isLoading, setIsloading] = useState<boolean>(false);
-  const [isValid, setIsValid] = useState<boolean | null>(null);
+  const [securityNumberState, setSecurityNumberState] =
+    useState<ISecurityNumber>(initialValuesSecutiryNumber);
 
   return (
     <Container variant="main">
       <Header />
 
       <Container variant="simple">
-        {isValid === null && !isLoading && (
-          <Form loading={setIsloading} result={setIsValid} />
-        )}
+        {securityNumberState?.state === "isEmpty" &&
+          !securityNumberState.isLoading && (
+            <Form setData={setSecurityNumberState} />
+          )}
 
-        {isValid === null && isLoading && <Loading />}
+        {securityNumberState?.state === "isEmpty" &&
+          securityNumberState.isLoading && <Loading />}
 
-        {isValid !== null && !isValid && !isLoading && <RejectCPF />}
-        {isValid && !isLoading && <AcceptCPF />}
+        {securityNumberState?.state === "isInvalid" &&
+          !securityNumberState.isLoading && <SecurityNumberInvalid />}
+
+        {securityNumberState?.state === "isRegistered" &&
+          !securityNumberState.isLoading && <SecurityNumberRegitered />}
+
+        {securityNumberState?.state === "isActivated" &&
+          !securityNumberState.isLoading && <BenefitsTable />}
       </Container>
 
       <Footer />

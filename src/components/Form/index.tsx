@@ -10,14 +10,14 @@ import { useForm } from "react-hook-form";
 
 import { ArrowRight } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
+import { ISecurityNumber } from "@/types/globals";
 
 interface IForm {
   onSubmit?: VoidFunction;
-  result: Dispatch<SetStateAction<boolean | null>>;
-  loading: Dispatch<SetStateAction<boolean>>;
+  setData: Dispatch<SetStateAction<ISecurityNumber>>;
 }
 
-function Form({ onSubmit, result: resultSubmit, loading }: IForm) {
+function Form({ onSubmit, setData }: IForm) {
   const {
     handleSubmit,
     register,
@@ -31,7 +31,7 @@ function Form({ onSubmit, result: resultSubmit, loading }: IForm) {
   });
 
   const onSubmitDefault = (values: validationSchemaType) => {
-    loading(true);
+    setData((prev) => ({ ...prev, isLoading: true }));
 
     new Promise((resolve) => {
       setTimeout(() => {
@@ -39,10 +39,15 @@ function Form({ onSubmit, result: resultSubmit, loading }: IForm) {
       }, 2000);
     })
       .then((result) => {
-        resultSubmit((result as { isValid: boolean }).isValid);
+        const response = result as ISecurityNumber;
+        setData((prev) => ({
+          ...prev,
+          securityNumber: response.securityNumber,
+          state: "isRegistered",
+        }));
       })
       .finally(() => {
-        loading(false);
+        setData((prev) => ({ ...prev, isLoading: false }));
       });
   };
 

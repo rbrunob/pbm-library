@@ -47,13 +47,18 @@ function Iframe({ url, title, openModal, setOpenModal }: IFrameProps) {
         allowFullScreen
         className="z-10"
       ></iframe>
-      <p className="text-start flex items-center-safe justify-center-safe text-sm text-zinc-800 gap-1 bg-white z-10 w-4/5 py-2">
-        <TriangleAlert color="#fd2626" size={16} />
-        <span className="text-red-500 font-semibold text-base">Atenção:</span>
-        Após finalizar os termos de aceite, você já poderá fechar essa janela.
-        Pode levar <strong>alguns minutos</strong> para os seus dados serem
-        aprovados.
-      </p>
+      <section className="items-center-safe justify-center-safe flex flex-wrap gap-1 bg-zinc-800 z-10 w-4/5 py-2 px-4 rounded-ee-2xl rounded-es-2xl border-t-2 border-gray-100">
+        <TriangleAlert size={20} className="shrink-0 text-red-500 " />
+
+        <p className="text-start text-sm text-white">
+          <span className="text-red-500 font-semibold text-base mr-1">
+            Atenção:
+          </span>
+          Após finalizar os termos de aceite, você já poderá fechar essa janela.
+          Pode levar <strong>alguns minutos</strong> para os seus dados serem
+          aprovados.
+        </p>
+      </section>
     </main>
   );
 }

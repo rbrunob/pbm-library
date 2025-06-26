@@ -1,0 +1,25 @@
+import Title from "@/components/UI/Title";
+import Text from "@/components/UI/Text";
+import Link from "@/components/UI/Link";
+
+function SecurityNumberRegitered() {
+  return (
+    <section className="flex items-end-safe justify-center-safe gap-2 w-full h-auto flex-col border-y border-zinc-300 py-6">
+      <Title className="w-full">CPF não habilitado no produto!</Title>
+      <Text className="w-full">
+        Por favor, conclua seu cadastro para habilitar os benefícios deste
+        laboratório.
+      </Text>
+      <Link
+        href={{
+          pathname: "https://gip-pd-app.interplayers.com.br/idp-pd-app/adesao",
+          param: { guid: "f2aff249-51b4-49a4-b671-d6bee89da0f0" },
+        }}
+      >
+        Ativar CEP
+      </Link>
+    </section>
+  );
+}
+
+export default SecurityNumberRegitered;
