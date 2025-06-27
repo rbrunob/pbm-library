@@ -1,3 +1,6 @@
+// Estilos
+import './index.css';
+
 // Componente Principal
 export { default as PBM } from "./PBM";
 

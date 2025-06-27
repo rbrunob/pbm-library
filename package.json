@@ -9,10 +9,12 @@
     "dist",
     "dist/**/*.css"
   ],
+  "style": "dist/index.css",
   "description": "A React component library to implement the PBM (Pharmacy Benefit Manager) model.",
   "scripts": {
     "dev": "vite",
-    "build": "tsup",
+    "build:css": "tailwindcss -i ./src/index.css -o ./dist/index.css --minify",
+    "build": "tsup && npm run build:css",
     "lint": "eslint .",
     "preview": "vite preview",
     "release": "pnpm run build && pnpm version patch && pnpm publish --access public",
