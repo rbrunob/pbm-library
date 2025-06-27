@@ -1,7 +1,6 @@
 import React, { ButtonHTMLAttributes } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: string;
   children: React.ReactNode;
 }
 

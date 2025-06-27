@@ -15,6 +15,8 @@ function Container({
           variant === "main",
         "w-full h-auto relative": variant === "simple",
       })}
+      data-testid="test_id_container"
+      data-variant={variant}
     >
       {children}
     </main>
