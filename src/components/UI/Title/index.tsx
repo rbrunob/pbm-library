@@ -9,7 +9,7 @@ function Title(props: TitleProps) {
   return (
     <h2
       className={classNames(
-        "text-start font-semibold text-sm",
+        "text-start font-semibold text-sm text-zinc-900",
         props.className
       )}
     >

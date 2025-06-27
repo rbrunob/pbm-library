@@ -1,6 +1,4 @@
-import React from "react";
-
-function Footer() {
+function Footer({ industryLogo }: { industryLogo: string }) {
   return (
     <footer className="w-full h-auto relative">
       <section className="flex items-center-safe justify-center-safe w-full h-auto gap-4">
@@ -14,8 +12,8 @@ function Footer() {
           </p>
         </section>
         <img
-          src="/partners/logo-parceiro-exemplo.jpeg"
-          alt="parceiro exemplo estático"
+          src={industryLogo}
+          alt="parceiro"
           className="w-1/5 h-auto aspect-square"
           loading="eager"
         />

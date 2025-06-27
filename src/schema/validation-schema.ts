@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const validationSchema = z.strictObject({
-    cpf: z
+    securityNumber: z
         .string({
             required_error: 'CPF é obrigatório.',
         })

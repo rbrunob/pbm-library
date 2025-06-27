@@ -12,12 +12,15 @@ import { ArrowRight } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
 import { ISecurityNumber } from "@/types/globals";
 
+import { usePBMStore } from "@/libs/zustand/usePBM";
+
 interface IForm {
-  onSubmit?: VoidFunction;
   setData: Dispatch<SetStateAction<ISecurityNumber>>;
 }
 
-function Form({ onSubmit, setData }: IForm) {
+function Form({ setData }: IForm) {
+  const { setSecurityNumber, setState, securityNumber } = usePBMStore();
+
   const {
     handleSubmit,
     register,
@@ -26,7 +29,7 @@ function Form({ onSubmit, setData }: IForm) {
   } = useForm<validationSchemaType>({
     resolver: zodResolver(validationSchema),
     defaultValues: {
-      cpf: "",
+      securityNumber: securityNumber || "",
     },
   });
 
@@ -35,16 +38,23 @@ function Form({ onSubmit, setData }: IForm) {
 
     new Promise((resolve) => {
       setTimeout(() => {
-        resolve({ cpf: values.cpf, isValid: false });
+        resolve({
+          securityNumber: values.securityNumber,
+          state: "isActivated",
+        });
       }, 2000);
     })
       .then((result) => {
         const response = result as ISecurityNumber;
+
         setData((prev) => ({
           ...prev,
           securityNumber: response.securityNumber,
-          state: "isRegistered",
+          state: response.state,
         }));
+
+        setSecurityNumber(response.securityNumber);
+        setState(response.state);
       })
       .finally(() => {
         setData((prev) => ({ ...prev, isLoading: false }));
@@ -53,7 +63,7 @@ function Form({ onSubmit, setData }: IForm) {
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit || onSubmitDefault)}
+      onSubmit={handleSubmit(onSubmitDefault)}
       className="w-full h-auto flex items-center-safe justify-center-safe"
     >
       <label
@@ -64,21 +74,23 @@ function Form({ onSubmit, setData }: IForm) {
           type="text"
           className={classNames(
             "w-full h-8 bg-blue-100 rounded-s-full text-sm font-semibold focus:outline focus:outline-blue-200 text-zinc-600 placeholder:text-zinc-600 px-4 placeholder:text-sm placeholder:font-semibold",
-            { "outline outline-red-600": errors.cpf }
+            { "outline outline-red-600": errors.securityNumber }
           )}
           placeholder="Digite seu CPF aqui..."
           required
           maxLength={14}
-          {...register("cpf", {
+          {...register("securityNumber", {
             onChange: (e) => {
               const formatted = toFormat(e.target.value);
-              setValue("cpf", formatted as string, { shouldValidate: true });
+              setValue("securityNumber", formatted as string, {
+                shouldValidate: true,
+              });
             },
           })}
         />
-        {errors.cpf && (
+        {errors.securityNumber && (
           <span className="text-red-400 text-xs font-semibold  absolute -bottom-3 left-2 text-nowrap">
-            {errors.cpf.message}
+            {errors.securityNumber.message}
           </span>
         )}
       </label>

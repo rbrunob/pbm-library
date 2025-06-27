@@ -1,0 +1,1 @@
+export const MOCK_LOGO: string = "/partners/logo-parceiro-exemplo.jpeg";

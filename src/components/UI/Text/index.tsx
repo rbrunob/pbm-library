@@ -8,7 +8,10 @@ interface TextProps extends HTMLAttributes<HTMLParagraphElement> {
 function Text(props: TextProps) {
   return (
     <p
-      className={classNames("text-start font-normal text-sm", props.className)}
+      className={classNames(
+        "text-start font-normal text-sm text-zinc-900",
+        props.className
+      )}
     >
       {props.children}
     </p>
