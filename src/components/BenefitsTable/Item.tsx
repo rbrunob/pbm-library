@@ -1,6 +1,6 @@
-import { IBenefitsItem } from "@/mocks/benefits";
+import { IBenefitsItem } from "../../mocks/benefits";
 
-import { usePBMStore } from "@/libs/zustand/usePBM";
+import { usePBMStore } from "../../libs/zustand/usePBM";
 
 import { Badge, BadgeCheck } from "lucide-react";
 import { useCallback, useEffect } from "react";

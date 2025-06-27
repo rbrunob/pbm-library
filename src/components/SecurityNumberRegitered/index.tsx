@@ -1,6 +1,6 @@
-import Title from "@/components/UI/Title";
-import Text from "@/components/UI/Text";
-import Link from "@/components/UI/Link";
+import Title from "../UI/Title";
+import Text from "../UI/Text";
+import Link from "../UI/Link";
 
 function SecurityNumberRegitered() {
   return (

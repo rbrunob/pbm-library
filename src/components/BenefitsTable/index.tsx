@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import { BENEFITS_ITEMS } from "@/mocks/benefits";
+import { BENEFITS_ITEMS } from "../../mocks/benefits";
 
-import Title from "@/components/UI/Title";
+import Title from "../UI/Title";
 import Item from "./Item";
 
 function BenefitsTable({

@@ -1,4 +1,4 @@
-import { ILinkHref } from "@/types/globals";
+import { ILinkHref } from "../../../types/globals";
 import classNames from "classnames";
 import React from "react";
 

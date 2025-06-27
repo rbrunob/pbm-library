@@ -1,8 +1,8 @@
 import {
   validationSchema,
   validationSchemaType,
-} from "@/schema/validation-schema";
-import { toFormat } from "@/utils/format";
+} from "../../schema/validation-schema";
+import { toFormat } from "../../utils/format";
 
 import classNames from "classnames";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,9 +10,9 @@ import { useForm } from "react-hook-form";
 
 import { ArrowRight } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
-import { ISecurityNumber } from "@/types/globals";
+import { ISecurityNumber } from "../../types/globals";
 
-import { usePBMStore } from "@/libs/zustand/usePBM";
+import { usePBMStore } from "../../libs/zustand/usePBM";
 
 interface IForm {
   setData: Dispatch<SetStateAction<ISecurityNumber>>;

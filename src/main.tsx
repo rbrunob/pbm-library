@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "@/index.css";
-import PBM from "@/PBM";
+import PBM from "./PBM";
 import { MOCK_PRICE } from "./mocks/price";
 import { MOCK_LOGO } from "./mocks/logo";
 

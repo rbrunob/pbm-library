@@ -1,4 +1,4 @@
-import { usePBMTypes } from "@/types/globals";
+import { usePBMTypes } from "../../types/globals";
 import { create } from "zustand";
 
 export interface PBMStore extends usePBMTypes {

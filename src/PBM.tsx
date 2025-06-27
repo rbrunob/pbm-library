@@ -1,10 +1,10 @@
-import Header from "@/components/Header";
-import Container from "@/components/UI/Container";
-import Footer from "@/components/Footer";
-import Form from "@/components/Form";
-import Loading from "@/components/UI/Loading";
-import BenefitsTable from "@/components/BenefitsTable";
-import SecurityNumberInvalid from "@/components/SecurityNumberInvalid";
+import Header from "./components/Header";
+import Container from "./components/UI/Container";
+import Footer from "./components/Footer";
+import Form from "./components/Form";
+import Loading from "./components/UI/Loading";
+import BenefitsTable from "./components/BenefitsTable";
+import SecurityNumberInvalid from "./components/SecurityNumberInvalid";
 
 import { initialValuesSecutiryNumber, ISecurityNumber } from "./types/globals";
 

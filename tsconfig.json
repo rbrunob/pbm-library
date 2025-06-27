@@ -15,12 +15,6 @@
       "vite/client",
       "jest",
     ],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    }
   },
   "include": [
     "src"
