@@ -10,10 +10,8 @@ import { initialValuesSecutiryNumber, ISecurityNumber } from "./types/globals";
 
 import { useState } from "react";
 import SecurityNumberRegitered from "./components/SecurityNumberRegitered";
-import { MOCK_PRICE } from "./mocks/price";
-import { MOCK_LOGO } from "./mocks/logo";
 
-interface PBMProps {
+export interface PBMProps {
   originalProductPrice: number;
   industryLogo: string;
 }
@@ -24,7 +22,7 @@ function PBM({ originalProductPrice, industryLogo }: PBMProps) {
 
   return (
     <Container variant="main">
-      <Header originalProductPrice={originalProductPrice || MOCK_PRICE} />
+      <Header originalProductPrice={originalProductPrice} />
 
       <Container variant="simple">
         {securityNumberState?.state === "isEmpty" &&
@@ -43,13 +41,11 @@ function PBM({ originalProductPrice, industryLogo }: PBMProps) {
 
         {securityNumberState?.state === "isActivated" &&
           !securityNumberState.isLoading && (
-            <BenefitsTable
-              originalProductPrice={originalProductPrice || MOCK_PRICE}
-            />
+            <BenefitsTable originalProductPrice={originalProductPrice} />
           )}
       </Container>
 
-      <Footer industryLogo={industryLogo || MOCK_LOGO} />
+      <Footer industryLogo={industryLogo} />
     </Container>
   );
 }

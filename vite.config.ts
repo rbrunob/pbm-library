@@ -10,6 +10,13 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
+  build: {
+    lib: {
+      entry: path.resolve(__dirname, 'src/index.ts'),
+      name: 'PBM_Library',
+      fileName: (format) => `pbm-lib.${format}.js`,
+    },
+  },
   plugins: [
     react(),
   ],

@@ -1,7 +1,7 @@
 import { usePBMTypes } from "@/types/globals";
 import { create } from "zustand";
 
-interface PBMStore extends usePBMTypes {
+export interface PBMStore extends usePBMTypes {
   setSecurityNumber: (securityNumber: string) => void;
   setState: (state: usePBMTypes["state"]) => void;
   setAvailableDiscountSelected: (

@@ -2,9 +2,11 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "@/index.css";
 import PBM from "@/PBM";
+import { MOCK_PRICE } from "./mocks/price";
+import { MOCK_LOGO } from "./mocks/logo";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <PBM />
+    <PBM originalProductPrice={MOCK_PRICE} industryLogo={MOCK_LOGO} />
   </StrictMode>
 );
