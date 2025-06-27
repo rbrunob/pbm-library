@@ -1,7 +1,8 @@
-import Title from "@/components/UI/Title";
-import Text from "@/components/UI/Text";
-import Button from "@/components/UI/Button";
-import Iframe from "@/components/Iframe";
+import Title from "../UI/Title";
+import Text from "../UI/Text";
+import Button from "../UI/Button";
+import Iframe from "../Iframe";
+
 import { useState } from "react";
 
 function SecurityNumberInvalid() {

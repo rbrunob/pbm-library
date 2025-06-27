@@ -1,5 +1,3 @@
-import React from "react";
-
 function Header({ originalProductPrice }: { originalProductPrice: number }) {
   return (
     <header className="flex items-center-safe justify-between w-full p-0.5 rounded-full bg-blue-200">
