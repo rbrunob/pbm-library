@@ -13,7 +13,7 @@
   "description": "A React component library to implement the PBM (Pharmacy Benefit Manager) model.",
   "scripts": {
     "dev": "vite",
-    "build:css": "tailwindcss -i ./src/index.css -o ./dist/index.css --minify",
+    "build:css": "tailwindcss -i ./src/index.css -o ./dist/output.css --minify",
     "build": "tsup && npm run build:css",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -43,6 +43,7 @@
     "@storybook/addon-onboarding": "9.0.12",
     "@storybook/addon-vitest": "9.0.12",
     "@storybook/react-vite": "9.0.12",
+    "@tailwindcss/cli": "^4.1.11",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
