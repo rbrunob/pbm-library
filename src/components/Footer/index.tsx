@@ -1,7 +1,7 @@
 function Footer({ industryLogo }: { industryLogo: string }) {
   return (
     <footer className="w-full h-auto relative">
-      <section className="flex items-center-safe justify-center-safe w-full h-auto gap-4">
+      <section className="flex items-center justify-center w-full h-auto gap-4">
         <section className="w-4/5 h-auto">
           <h3 className="text-start font-semibold text-sm">
             Economize com o benefício do laboratório.
@@ -14,7 +14,7 @@ function Footer({ industryLogo }: { industryLogo: string }) {
         <img
           src={industryLogo}
           alt="parceiro"
-          className="w-1/5 h-auto aspect-square"
+          className="w-1/5 min-w-20 h-auto aspect-square"
           loading="eager"
         />
       </section>

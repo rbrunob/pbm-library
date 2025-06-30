@@ -64,11 +64,11 @@ function Form({ setData }: IForm) {
   return (
     <form
       onSubmit={handleSubmit(onSubmitDefault)}
-      className="w-full h-auto flex items-center-safe justify-center-safe"
+      className="w-full h-auto flex items-center justify-center"
     >
       <label
         htmlFor="cpf"
-        className="w-4/5 h-auto flex items-start flex-col justify-center-safe relative py-2"
+        className="w-4/5 h-auto flex items-start flex-col justify-center relative py-2"
       >
         <input
           type="text"
@@ -96,7 +96,7 @@ function Form({ setData }: IForm) {
       </label>
       <button
         type="submit"
-        className="bg-gray-400 w-1/5 h-8 flex items-center-safe justify-center-safe rounded-e-full cursor-pointer"
+        className="bg-gray-400 w-1/5 h-8 flex items-center justify-center rounded-e-full cursor-pointer"
       >
         <ArrowRight size={24} color="white" strokeWidth={2} />
       </button>

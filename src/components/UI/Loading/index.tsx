@@ -1,16 +1,10 @@
-import "./index.css";
-import LoadingIcon from "./IconLoading";
-
 function Loading() {
   return (
-    <main className="loader">
-      <div className="loaderMiniContainer">
-        <LoadingIcon />
-        <div className="barContainer">
-          <span className="bar"></span>
-          <span className="bar bar2"></span>
-        </div>
-      </div>
+    <main className="flex items-center justify-center gap-4">
+      <div className="w-8 h-8 border-4 border-t-gray-700 border-gray-300 rounded-full animate-spin"></div>
+      <p className="text-sm text-zinc-900 font-semibold text-start">
+        Um momento... estamos verificando seus dados.
+      </p>
     </main>
   );
 }

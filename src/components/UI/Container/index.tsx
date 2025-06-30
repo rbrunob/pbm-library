@@ -11,7 +11,7 @@ function Container({
   return (
     <main
       className={classNames({
-        "flex flex-col items-center-safe justify-center-safe min-w-[var(--min-container)] max-w-[var(--max-container)] w-full h-auto rounded-2xl p-4 bg-gray-100 gap-4":
+        "flex flex-col items-center justify-center min-w-[var(--min-container)] max-w-[var(--max-container)] w-full h-auto rounded-2xl p-4 bg-gray-100 gap-4":
           variant === "main",
         "w-full h-auto relative": variant === "simple",
       })}

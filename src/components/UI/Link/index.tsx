@@ -32,7 +32,7 @@ function Link(props: LinkProps) {
           : props.href.pathname + getParams(props.href.param)
       }
       className={classNames(
-        "w-3xs cursor-pointer h-10 rounded-full bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold transition-colors flex items-center-safe justify-center-safe",
+        "w-3xs cursor-pointer h-10 rounded-full bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold transition-colors flex items-center justify-center",
         props.className
       )}
     >

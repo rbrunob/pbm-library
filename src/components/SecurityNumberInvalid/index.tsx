@@ -8,7 +8,7 @@ import { useState } from "react";
 function SecurityNumberInvalid() {
   const [openModal, setOpenModal] = useState<boolean>(false);
   return (
-    <section className="flex items-end-safe justify-center-safe gap-2 w-full h-auto flex-col border-y border-zinc-300 py-6">
+    <section className="flex items-end justify-center gap-2 w-full h-auto flex-col border-y border-zinc-300 py-6">
       <Title className="w-full">CPF não cadastrado!</Title>
       <Text className="w-full">
         Por favor, conclua seu cadastro para habilitar os benefícios deste

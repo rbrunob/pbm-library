@@ -4,7 +4,7 @@ import Link from "../UI/Link";
 
 function SecurityNumberRegitered() {
   return (
-    <section className="flex items-end-safe justify-center-safe gap-2 w-full h-auto flex-col border-y border-zinc-300 py-6">
+    <section className="flex items-end justify-center gap-2 w-full h-auto flex-col border-y border-zinc-300 py-6">
       <Title className="w-full">CPF não habilitado no produto!</Title>
       <Text className="w-full">
         Por favor, conclua seu cadastro para habilitar os benefícios deste

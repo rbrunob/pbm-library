@@ -13,10 +13,10 @@ function BenefitsTable({
   const [selectedDiscout, setSelectedDiscount] = useState<string | null>(null);
 
   return (
-    <section className="flex items-start-safe justify-center-safe gap-4 w-full h-auto flex-col">
+    <section className="flex items-start justify-center gap-4 w-full h-auto flex-col">
       <Title>Descontos disponíveis:</Title>
 
-      <form className="flex flex-col items-center-safe justify-start w-full gap-3">
+      <form className="flex flex-col items-center justify-start w-full gap-3">
         {BENEFITS_ITEMS.map((item, index) => {
           const ID_INPUT = "unity_quantity_" + item.authorizedQuantity;
 

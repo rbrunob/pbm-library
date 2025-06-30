@@ -53,7 +53,7 @@ function Item({ data, onChange, checked, originalProductPrice }: ItemProps) {
   return (
     <label
       htmlFor={ID_INPUT}
-      className="w-full flex items-center-safe justify-start bg-zinc-300/60 border border-zinc-400/50 px-4 py-2 hover:bg-zinc-300 transition-colors cursor-pointer rounded-full gap-1"
+      className="w-full flex items-center justify-start bg-zinc-300/60 border border-zinc-400/50 px-4 py-2 hover:bg-zinc-300 transition-colors cursor-pointer rounded-full gap-1"
     >
       <input
         type="radio"
