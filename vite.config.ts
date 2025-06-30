@@ -16,6 +16,15 @@ export default defineConfig({
       name: 'PBM_Library',
       fileName: (format) => `pbm-lib.${format}.js`,
     },
+    rollupOptions: {
+      external: ['react', 'react-dom'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+        },
+      },
+    },
   },
   plugins: [
     react(),
