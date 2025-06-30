@@ -9,7 +9,7 @@ function Header({ originalProductPrice }: { originalProductPrice: number }) {
           style: "currency",
         })}
       </span>
-      <h1 className="text-center w-full text-blue-500 font-bold text-sm px-4">
+      <h1 className="text-center w-full text-blue-500 font-bold text-xs px-4 md:text-sm">
         Benefício de Laboratório
       </h1>
     </header>
