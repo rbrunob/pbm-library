@@ -12,6 +12,7 @@ function Title(props: TitleProps) {
         "text-start font-semibold text-sm text-zinc-900",
         props.className
       )}
+      data-testid="test_id_title"
     >
       {props.children}
     </h2>

@@ -12,6 +12,7 @@ function Text(props: TextProps) {
         "text-start font-normal text-sm text-zinc-900",
         props.className
       )}
+      data-testid="test_id_text"
     >
       {props.children}
     </p>
