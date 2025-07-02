@@ -19,6 +19,7 @@ function Iframe({ url, title, openModal, setOpenModal }: IFrameProps) {
           "opacity-0 pointer-events-none": !openModal,
         }
       )}
+      data-testid="test_id_iframe"
     >
       <div
         className="bg-black/35 inset-0 absolute"
@@ -31,6 +32,7 @@ function Iframe({ url, title, openModal, setOpenModal }: IFrameProps) {
         <button
           className="shadow-2xl cursor-pointer text-white font-bold bg-red-500 w-auto h-auto px-8 py-2 rounded-full"
           aria-label="Fechar o modal"
+          data-testid="test_id_buttonclose"
           onClick={() => {
             setOpenModal(false);
             window.location.reload();
