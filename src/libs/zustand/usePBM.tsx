@@ -1,5 +1,5 @@
+import { create, createStore, StateCreator, StoreApi } from "zustand";
 import { usePBMTypes } from "../../types/globals";
-import { create } from "zustand";
 
 export interface PBMStore extends usePBMTypes {
   setSecurityNumber: (securityNumber: string) => void;
@@ -22,14 +22,20 @@ const initialPBMState: usePBMTypes = {
   },
 };
 
-export const usePBMStore = create<PBMStore>((set) => ({
+// ✅ TIPANDO a função corretamente com StateCreator
+const createPBMStore: StateCreator<PBMStore> = (set) => ({
   ...initialPBMState,
 
-  setSecurityNumber: (securityNumber) =>
-    set({ securityNumber: securityNumber }),
+  setSecurityNumber: (securityNumber: string) => set({ securityNumber }),
+  setState: (state: usePBMTypes["state"]) => set({ state }),
+  setAvailableDiscountSelected: (
+    availableDiscount: usePBMTypes["availableDiscountSelected"]
+  ) => set({ availableDiscountSelected: availableDiscount }),
+});
 
-  setState: (state) => set({ state }),
+// React hook (usado dentro de componentes React)
+export const usePBMStore = create<PBMStore>(createPBMStore);
 
-  setAvailableDiscountSelected: (availableDiscount) =>
-    set({ availableDiscountSelected: availableDiscount }),
-}));
+// Store para uso em Vanilla JS
+export const pbmStore: StoreApi<PBMStore> =
+  createStore<PBMStore>(createPBMStore);

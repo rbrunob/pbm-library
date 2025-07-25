@@ -1,5 +1,5 @@
 // Estilos
-import './index.css';
+import './web/styles-webcomponet.css';
 
 // Componente Principal
 import './web/PBM-webcomponent';

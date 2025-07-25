@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+:root {
+    --max-container: 556px;
+    --min-container: 350px;
+}

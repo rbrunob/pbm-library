@@ -1,5 +1,21 @@
 import ReactDOM from "react-dom/client";
 import PBM from "../PBM";
+import type { StoreApi } from "zustand";
+import type { PBMStore } from "../libs/zustand/usePBM";
+import { pbmStore } from "../libs/zustand/usePBM";
+
+declare global {
+  interface Window {
+    pbm?: {
+      pbmStore: StoreApi<PBMStore>;
+    };
+  }
+}
+
+window.pbm = {
+  ...window.pbm,
+  pbmStore,
+};
 
 class PBMComponent extends HTMLElement {
   private root: ReactDOM.Root | null = null;
