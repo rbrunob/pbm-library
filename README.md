@@ -11,19 +11,35 @@
 Instale a biblioteca com seu gerenciador de pacotes favorito:
 
 #### NPM
+
 ```bash
 npm install @agradadigital/pbm
 ```
+
 #### Yarn
+
 ```bash
 yarn add @agradadigital/pbm
 ```
+
 #### PNPM
+
 ```bash
 pnpm add @agradadigital/pbm
 ```
 
 ---
+
+## 📦 Para Projetos Vanilla
+
+```bash
+<script src="dist-wc/pbm-wc.js"></script>
+
+<pbm-component
+  originalproductprice="200"
+  industrylogo="https://meusite.com/logo.png">
+</pbm-component>
+```
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -36,7 +52,6 @@ pnpm add @agradadigital/pbm
 | ![Jest](https://img.shields.io/badge/-Jest-C21325?logo=jest&logoColor=white&style=flat-square) | Testes unitários |
 | ![Storybook](https://img.shields.io/badge/-Storybook-FF4785?logo=storybook&logoColor=white&style=flat-square) | Documentação e desenvolvimento de UI isolada |
 | ![PNPM](https://img.shields.io/badge/-PNPM-F69220?logo=pnpm&logoColor=white&style=flat-square) | Gerenciador de pacotes leve e rápido |
-
 
 ---
 
