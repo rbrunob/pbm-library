@@ -16,6 +16,7 @@ export default defineConfig({
             formats: ['iife'],
         },
         outDir: 'dist-wc',
+        cssCodeSplit: true,
     },
     resolve: {
         alias: {
