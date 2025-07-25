@@ -41,6 +41,7 @@ Inclua via `<script>`:
   originalproductprice="199.9"
   industrylogo="https://meusite.com/logo.png">
 </pbm-component>
+```
 
 ## 🛠️ Tecnologias Utilizadas
 
