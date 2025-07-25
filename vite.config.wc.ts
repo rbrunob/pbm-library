@@ -5,7 +5,8 @@ import path from 'node:path';
 export default defineConfig({
     plugins: [react()],
     define: {
-        'process.env.NODE_ENV': JSON.stringify('production'),
+        'process.env.NODE_ENV': JSON.stringify('production'), // ✅ obrigatório
+        'process.env': {}, // ✅ garante fallback mínimo
     },
     build: {
         lib: {
