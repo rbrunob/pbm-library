@@ -17,6 +17,7 @@ function Container({
       })}
       data-testid="test_id_container"
       data-variant={variant}
+      id="container_pbm"
     >
       {children}
     </main>

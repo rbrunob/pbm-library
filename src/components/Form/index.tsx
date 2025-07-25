@@ -65,10 +65,12 @@ function Form({ setData }: IForm) {
     <form
       onSubmit={handleSubmit(onSubmitDefault)}
       className="w-full h-auto flex items-center justify-center"
+      id="form_security_number_pbm"
     >
       <label
         htmlFor="cpf"
         className="w-4/5 h-auto flex items-start flex-col justify-center relative py-2"
+        id="label_security_number_pbm"
       >
         <input
           type="text"
@@ -87,6 +89,7 @@ function Form({ setData }: IForm) {
               });
             },
           })}
+          id="input_security_number_pbm"
         />
         {errors.securityNumber && (
           <span className="text-red-400 text-xs font-semibold  absolute -bottom-3 left-2 text-nowrap">
@@ -97,6 +100,7 @@ function Form({ setData }: IForm) {
       <button
         type="submit"
         className="bg-gray-400 w-1/5 h-8 flex items-center justify-center rounded-e-full cursor-pointer"
+        id="button_submit_security_number_pbm"
       >
         <ArrowRight size={24} color="white" strokeWidth={2} />
       </button>

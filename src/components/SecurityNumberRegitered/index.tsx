@@ -7,6 +7,7 @@ function SecurityNumberRegitered() {
     <section
       data-testid="test_id_registered"
       className="flex items-end justify-center gap-2 w-full h-auto flex-col border-y border-zinc-300 py-6"
+      id="security_number_registered_container_pbm"
     >
       <Title className="w-full">CPF não habilitado no produto!</Title>
       <Text className="w-full">

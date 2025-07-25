@@ -54,6 +54,7 @@ function Item({ data, onChange, checked, originalProductPrice }: ItemProps) {
     <label
       htmlFor={ID_INPUT}
       className="w-full flex items-center justify-start bg-zinc-300/60 border border-zinc-400/50 px-4 py-2 hover:bg-zinc-300 transition-colors cursor-pointer rounded-full gap-1"
+      id={"label_benefits_" + ID_INPUT}
     >
       <input
         type="radio"
