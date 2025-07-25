@@ -1,1 +1,1 @@
-export const MOCK_PRICE: number = 200;
+export const MOCK_PRICE: number = 200.98;

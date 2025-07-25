@@ -22,7 +22,7 @@ function PBM({ originalProductPrice, industryLogo }: PBMProps) {
 
   return (
     <Container variant="main">
-      <Header originalProductPrice={originalProductPrice} />
+      <Header originalProductPrice={originalProductPrice || 0} />
 
       <Container variant="simple">
         {securityNumberState?.state === "isEmpty" &&

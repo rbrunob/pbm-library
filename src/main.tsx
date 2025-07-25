@@ -7,6 +7,6 @@ import { MOCK_LOGO } from "./mocks/logo";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <PBM originalProductPrice={MOCK_PRICE} industryLogo={MOCK_LOGO} />
+    <PBM originalProductPrice={MOCK_PRICE as number} industryLogo={MOCK_LOGO} />
   </StrictMode>
 );
