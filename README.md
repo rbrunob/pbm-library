@@ -30,16 +30,17 @@ pnpm add @agradadigital/pbm
 
 ---
 
-## 📦 Para Projetos Vanilla
+## 💡 Uso em Vanilla JS (sem React)
 
-```bash
-<script src="dist-wc/pbm-wc.js"></script>
+Inclua via `<script>`:
+
+```html
+<script src="https://unpkg.com/@agradadigital/pbm/dist-wc/pbm-wc.js"></script>
 
 <pbm-component
-  originalproductprice="200"
+  originalproductprice="199.9"
   industrylogo="https://meusite.com/logo.png">
 </pbm-component>
-```
 
 ## 🛠️ Tecnologias Utilizadas
 
