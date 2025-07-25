@@ -9,11 +9,18 @@
     "dist",
     "dist/**/*.css"
   ],
+  "exports": {
+    ".": {
+      "browser": "./dist-wc/pbm-wc.js",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
   "style": "dist/index.css",
   "description": "A React component library to implement the PBM (Pharmacy Benefit Manager) model.",
   "scripts": {
     "dev": "vite",
-    "build": "tsup",
+    "build": "tsup && vite build --config vite.config.wc.ts",
     "lint": "eslint .",
     "preview": "vite preview",
     "release": "pnpm run build && pnpm version patch && pnpm publish --access public",
@@ -31,6 +38,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-hook-form": "^7.59.0",
+    "react-to-webcomponent": "^2.0.1",
     "zod": "^3.25.67",
     "zustand": "^5.0.6"
   },
