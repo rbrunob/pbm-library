@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom/client';
 import reactToWebComponent from 'react-to-webcomponent';
 import PBM from '../PBM';
 
-const PBMElement = reactToWebComponent(PBM, React, ReactDOM);
+const PBMElement = reactToWebComponent(PBM, React, ReactDOM, {
+    props: {
+        originalProductPrice: 'number',
+        industryLogo: 'string'
+    }
+});
 
-// Define o custom element: <pbm-component />
 customElements.define('pbm-component', PBMElement);
