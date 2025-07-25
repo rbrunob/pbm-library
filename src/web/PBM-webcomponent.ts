@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reactToWebComponent from 'react-to-webcomponent';
-import PBM from '../PBM';
+import PBMWebWrapper from './PBMWebWrapper';
 
-const PBMElement = reactToWebComponent(PBM, React, ReactDOM, {
+const PBMElement = reactToWebComponent(PBMWebWrapper, React, ReactDOM, {
     props: {
-        originalProductPrice: 'number',
-        industryLogo: 'string'
+        originalProductPrice: 'string', // vai chegar como string e o wrapper lida
+        industryLogo: 'string',
     }
 });
 
