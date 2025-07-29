@@ -4,7 +4,10 @@ function Header({ originalProductPrice }: { originalProductPrice: number }) {
       className="flex items-center justify-between w-full p-0.5 rounded-full bg-blue-200"
       id="header_pbm"
     >
-      <span className="py-1 px-6 rounded-full bg-blue-500 shrink-0 text-white text-sm font-bold">
+      <span
+        className="py-1 px-6 rounded-full bg-blue-500 shrink-0 text-white text-sm font-bold"
+        data-testid="test_id_header_price"
+      >
         {Number(originalProductPrice)?.toLocaleString("pt-BR", {
           currency: "BRL",
           currencyDisplay: "symbol",

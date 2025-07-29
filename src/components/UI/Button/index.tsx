@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React, { ButtonHTMLAttributes } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -8,7 +9,10 @@ function Button(props: ButtonProps) {
   return (
     <button
       {...props}
-      className="w-3xs cursor-pointer h-10 rounded-full bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold transition-colors"
+      className={classNames(
+        "w-3xs cursor-pointer h-10 rounded-full bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold transition-colors",
+        props.className
+      )}
     >
       {props.children}
     </button>

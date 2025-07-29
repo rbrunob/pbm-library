@@ -1,4 +1,4 @@
-function Footer({ industryLogo }: { industryLogo: string }) {
+function Footer({ industryLogo }: { industryLogo?: string }) {
   return (
     <footer className="w-full h-auto relative" id="footer_pbm">
       <section className="flex items-center justify-center w-full h-auto gap-4">
@@ -11,13 +11,16 @@ function Footer({ industryLogo }: { industryLogo: string }) {
             programa.
           </p>
         </section>
-        <img
-          src={industryLogo}
-          alt="parceiro"
-          className="w-1/5 min-w-20 h-auto aspect-square"
-          loading="eager"
-          id="footer_industry_logo_pbm"
-        />
+        {industryLogo && (
+          <img
+            src={industryLogo}
+            alt="parceiro"
+            className="w-1/5 min-w-20 h-auto aspect-square"
+            loading="eager"
+            id="footer_industry_logo_pbm"
+            data-testid="footer_industry_logo_pbm"
+          />
+        )}
       </section>
     </footer>
   );
