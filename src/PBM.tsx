@@ -8,17 +8,42 @@ import SecurityNumberInvalid from "./components/SecurityNumberInvalid";
 
 import { initialValuesSecutiryNumber, ISecurityNumber } from "./types/globals";
 
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import SecurityNumberRegitered from "./components/SecurityNumberRegitered";
+import { GetAuthorization } from "./services/authorization";
+
+let hasAuthorization = false;
 
 export interface PBMProps {
   originalProductPrice: number;
   industryLogo: string;
+  clientID: string;
 }
 
-function PBM({ originalProductPrice, industryLogo }: PBMProps) {
+function PBM({ originalProductPrice, industryLogo, clientID }: PBMProps) {
   const [securityNumberState, setSecurityNumberState] =
     useState<ISecurityNumber>(initialValuesSecutiryNumber);
+
+  const handleAuthorizationRequest = useCallback(async () => {
+    try {
+      const response = await GetAuthorization({ clientID: clientID });
+
+      if (response.success) {
+        console.log("Authorization succeeded:", response.message);
+      } else {
+        console.error("Authorization failed:", response.message);
+      }
+    } catch (error) {
+      console.error("Error fetching authorization:", error);
+    }
+  }, [clientID]);
+
+  useEffect(() => {
+    if (!hasAuthorization) {
+      hasAuthorization = false;
+      handleAuthorizationRequest();
+    }
+  }, [handleAuthorizationRequest]);
 
   return (
     <Container variant="main">

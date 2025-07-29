@@ -22,10 +22,11 @@ class PBMComponent extends HTMLElement {
   private props = {
     originalProductPrice: 0,
     industryLogo: "",
+    clientID: "",
   };
 
   static get observedAttributes() {
-    return ["originalproductprice", "industrylogo"];
+    return ["originalproductprice", "industrylogo", "clientid"];
   }
 
   constructor() {
@@ -42,6 +43,9 @@ class PBMComponent extends HTMLElement {
     }
     if (name === "industrylogo") {
       this.props.industryLogo = newVal;
+    }
+    if (name === "clientid") {
+      this.props.clientID = newVal;
     }
 
     this.mount();
