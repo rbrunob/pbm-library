@@ -1,20 +1,22 @@
 import Cookies from "js-cookie";
+import { IRequestDefault } from "../types/requests";
 
 interface GetAuthorizationParams {
     clientID: string;
 }
 
-interface IResponseAuth {
-    data: {
-        expiresIn: string;
-        store: {
-            CNPJ: string;
-            name: string;
-        },
-        token: string;
+interface IAuthData {
+    expiresIn: string;
+    store: {
+        CNPJ: string;
+        name: string;
     },
-    success: boolean;
-    message: string;
+    token: string;
+    refreshToken: string;
+}
+
+interface IResponseAuth extends IRequestDefault {
+    data: IAuthData;
 }
 
 export const GetAuthorization = async ({ clientID }: GetAuthorizationParams): Promise<IResponseAuth> => {
@@ -50,6 +52,11 @@ export const GetAuthorization = async ({ clientID }: GetAuthorizationParams): Pr
 
     Cookies.set('pbm-token', dataResponse.data.token, {
         expires: parseInt(dataResponse.data.expiresIn, 10) / (60 * 60),
+        secure: true,
+        sameSite: 'Strict'
+    });
+
+    Cookies.set('pbm-token-refresh', dataResponse.data.refreshToken, {
         secure: true,
         sameSite: 'Strict'
     });
