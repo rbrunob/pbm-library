@@ -27,5 +27,6 @@ export interface usePBMTypes {
         quantity: number;
         discount: discountTypes;
         totalPrice: number;
-    }
+    };
+    campaign: "pbm_campaign";
 }

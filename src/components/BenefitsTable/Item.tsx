@@ -13,7 +13,7 @@ interface ItemProps {
 }
 
 function Item({ data, onChange, checked, originalProductPrice }: ItemProps) {
-  const { setAvailableDiscountSelected } = usePBMStore();
+  const { setAvailableDiscountSelected, securityNumber } = usePBMStore();
 
   const ID_INPUT = "unity_quantity_" + data.authorizedQuantity;
 
@@ -63,6 +63,7 @@ function Item({ data, onChange, checked, originalProductPrice }: ItemProps) {
         className="hidden"
         checked={checked}
         onChange={onChange}
+        disabled={!securityNumber}
       />
 
       {!checked ? (

@@ -15,10 +15,10 @@ import { ISecurityNumber } from "../../types/globals";
 import { usePBMStore } from "../../libs/zustand/usePBM";
 
 interface IForm {
-  setData: Dispatch<SetStateAction<ISecurityNumber>>;
+  setLoading: Dispatch<SetStateAction<boolean>>;
 }
 
-function Form({ setData }: IForm) {
+function Form({ setLoading }: IForm) {
   const { setSecurityNumber, setState, securityNumber } = usePBMStore();
 
   const {
@@ -34,7 +34,7 @@ function Form({ setData }: IForm) {
   });
 
   const onSubmitDefault = (values: validationSchemaType) => {
-    setData((prev) => ({ ...prev, isLoading: true }));
+    setLoading(true);
 
     new Promise((resolve) => {
       setTimeout(() => {
@@ -47,17 +47,11 @@ function Form({ setData }: IForm) {
       .then((result) => {
         const response = result as ISecurityNumber;
 
-        setData((prev) => ({
-          ...prev,
-          securityNumber: response.securityNumber,
-          state: response.state,
-        }));
-
         setSecurityNumber(response.securityNumber);
         setState(response.state);
       })
       .finally(() => {
-        setData((prev) => ({ ...prev, isLoading: false }));
+        setLoading(false);
       });
   };
 
@@ -89,6 +83,7 @@ function Form({ setData }: IForm) {
               });
             },
           })}
+          defaultValue={securityNumber || ""}
           id="input_security_number_pbm"
         />
         {errors.securityNumber && (

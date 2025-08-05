@@ -20,6 +20,7 @@ const initialPBMState: usePBMTypes = {
     },
     totalPrice: 0,
   },
+  campaign: "pbm_campaign",
 };
 
 // ✅ TIPANDO a função corretamente com StateCreator
