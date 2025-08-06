@@ -40,7 +40,7 @@ function Form({ setLoading }: IForm) {
       setTimeout(() => {
         resolve({
           securityNumber: values.securityNumber,
-          state: "isActivated",
+          state: "isInvalid",
         });
       }, 2000);
     })
@@ -58,7 +58,10 @@ function Form({ setLoading }: IForm) {
   return (
     <form
       onSubmit={handleSubmit(onSubmitDefault)}
-      className="w-full h-auto flex items-center justify-center"
+      className={classNames(
+        "w-full h-auto flex items-center justify-center mb-0 transition-all duration-150",
+        { "mb-4": errors.securityNumber }
+      )}
       id="form_security_number_pbm"
     >
       <label
