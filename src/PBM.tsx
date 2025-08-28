@@ -12,39 +12,58 @@ import SecurityNumberRegitered from "./components/SecurityNumberRegitered";
 import { GetAuthorization } from "./services/authorization";
 import { ArrowRight } from "lucide-react";
 import { usePBMStore } from "./libs/zustand/usePBM";
-
-let hasAuthorization = false;
+import { GetProductByEAN } from "./services/get-product-by-ean";
+import { useTargetProducts } from "./libs/zustand/useTargetProduct";
 
 export interface PBMProps {
   originalProductPrice: number;
   industryLogo: string;
   clientID: string;
+  eanProduct: string;
 }
 
-function PBM({ originalProductPrice, industryLogo, clientID }: PBMProps) {
+function PBM({
+  originalProductPrice,
+  industryLogo,
+  clientID,
+  eanProduct,
+}: PBMProps) {
   const [loading, setLoading] = useState<boolean>(false);
 
-  const { setState, state } = usePBMStore();
+  const { setState, state, setTargetProduct } = usePBMStore();
+  const { setTargetProductInternal } = useTargetProducts();
+
+  const handleGetProductByEAN = useCallback(async () => {
+    try {
+      const response = await GetProductByEAN({ PRODUCT_EAN: eanProduct });
+
+      if (response.success) {
+        // Pega a posição zero, pois a API sempre retorna um array, mesmo contendo somente um item.
+        const productByEan = response.data.message.products[0];
+        setTargetProduct(productByEan);
+        setTargetProductInternal(productByEan);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }, [eanProduct, setTargetProduct, setTargetProductInternal]);
 
   const handleAuthorizationRequest = useCallback(async () => {
     try {
       const response = await GetAuthorization({ clientID: clientID });
 
-      if (response.success) {
-        console.log("Authorization succeeded:", response.message);
+      if (response.success && eanProduct) {
+        handleGetProductByEAN();
       } else {
         console.error("Authorization failed:", response.message);
       }
     } catch (error) {
       console.error("Error fetching authorization:", error);
     }
-  }, [clientID]);
+  }, [clientID, handleGetProductByEAN, eanProduct]);
 
   useEffect(() => {
-    if (!hasAuthorization) {
-      hasAuthorization = false;
-      handleAuthorizationRequest();
-    }
+    handleAuthorizationRequest();
   }, [handleAuthorizationRequest]);
 
   return (

@@ -7,6 +7,7 @@ export interface PBMStore extends usePBMTypes {
   setAvailableDiscountSelected: (
     availableDiscount: usePBMTypes["availableDiscountSelected"]
   ) => void;
+  setTargetProduct: (targetProduct: usePBMTypes["targetProduct"]) => void;
 }
 
 const initialPBMState: usePBMTypes = {
@@ -20,6 +21,7 @@ const initialPBMState: usePBMTypes = {
     },
     totalPrice: 0,
   },
+  targetProduct: null,
   campaign: "pbm_campaign",
 };
 
@@ -29,6 +31,8 @@ const createPBMStore: StateCreator<PBMStore> = (set) => ({
 
   setSecurityNumber: (securityNumber: string) => set({ securityNumber }),
   setState: (state: usePBMTypes["state"]) => set({ state }),
+  setTargetProduct: (targetProduct: usePBMTypes["targetProduct"]) =>
+    set({ targetProduct }),
   setAvailableDiscountSelected: (
     availableDiscount: usePBMTypes["availableDiscountSelected"]
   ) => set({ availableDiscountSelected: availableDiscount }),

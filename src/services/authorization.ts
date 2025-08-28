@@ -38,9 +38,9 @@ export const GetAuthorization = async ({ clientID }: GetAuthorizationParams): Pr
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            storeId: STORE_ID,
-            storeName: STORE_NAME,
-            clientId: clientID
+            StoreID: STORE_ID,
+            StoreName: STORE_NAME,
+            ClientID: clientID
         })
     });
 

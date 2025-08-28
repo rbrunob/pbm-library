@@ -25,9 +25,16 @@ export const RefreshToken = async (): Promise<IResponseRefreshAuth> => {
         throw new Error('API URL is not defined in environment variables');
     }
 
+    const AUTH_TOKEN = Cookies.get("pbm-token");
+
+    if (!AUTH_TOKEN) {
+        throw new Error('Token is not defined in cookies or is expired');
+    }
+
     const response = await fetch(`${API_URL}/auth/refresh`, {
         method: 'POST',
         headers: {
+            Authorization: `Bearer ${AUTH_TOKEN}`,
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({

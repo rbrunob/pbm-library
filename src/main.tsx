@@ -10,7 +10,8 @@ createRoot(document.getElementById("root")!).render(
     <PBM
       originalProductPrice={MOCK_PRICE as number}
       industryLogo={MOCK_LOGO}
-      clientID={import.meta.env.VITE_CLIENT_ID}
+      clientID="U{uD-;WBAT8dTMYTl73X0nCieq8c$c9wmXk"
+      eanProduct="7896261000115"
     />
   </StrictMode>
 );
